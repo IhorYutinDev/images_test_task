@@ -1,0 +1,1 @@
+insert into images (url) values ('http://test.url');
