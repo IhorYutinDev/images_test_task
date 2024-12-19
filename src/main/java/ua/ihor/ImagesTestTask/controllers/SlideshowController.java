@@ -39,7 +39,7 @@ public class SlideshowController {
             @ApiResponse(responseCode = "500", description = "Internal server error")})
     @PostMapping("/addSlideshow")
     public ResponseEntity<Slideshow> addSlideshow(@RequestBody CreateSlideshowRequest request) {
-        Slideshow slideshow = slideshowService.createSlideshow(request.getName(), request.getSlides());
+        Slideshow slideshow = slideshowService.createSlideshow(request);
         return ResponseEntity.ok(slideshow);
     }
 

@@ -1,4 +1,4 @@
-package ua.ihor.ImagesTestTask;
+package ua.ihor.ImagesTestTask.repositories;
 
 
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,6 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import ua.ihor.ImagesTestTask.dtos.SlideshowImageDuration;
 import ua.ihor.ImagesTestTask.models.Image;
-import ua.ihor.ImagesTestTask.repositories.ImagesRepository;
 
 import java.util.List;
 

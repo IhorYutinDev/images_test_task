@@ -32,7 +32,6 @@ public class ImagesService {
             throw new IllegalArgumentException("Invalid image format");
         }
 
-
         try {
             imageRepository.save(image);
         } catch (DataIntegrityViolationException e) {
@@ -45,39 +44,28 @@ public class ImagesService {
     public void deleteImage(Long id) throws ImageNotFoundException {
         Optional<Image> image = imageRepository.findById(id);
         image.ifPresentOrElse(
-                img -> imageRepository.deleteById(id), // Delete if present
+                img -> imageRepository.deleteById(id),
                 () -> {
                     throw new EntityNotFoundException("Image with id " + id + " does not exist.");
                 }
         );
     }
 
-    public List<Image> searchImages(String keyword, int duration) {
-        return null;
-//        return imageRepository.findByKeywordAndDuration(keyword, duration);
-    }
-
     public boolean isValidImageUrl(String imageUrl) {
         try {
-            // Open a connection to the image URL
-
             HttpURLConnection connection = (HttpURLConnection) new URL(imageUrl).openConnection();
-            connection.setRequestMethod("HEAD"); // Use HEAD to check the headers without downloading the entire file
-            connection.setConnectTimeout(5000); // Set timeout for the connection
+            connection.setRequestMethod("HEAD");
+            connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
 
-            // Get the content type from the response headers
             String contentType = connection.getContentType();
-
-            // Check if the content type starts with 'image/'
             return contentType != null && contentType.startsWith("image/");
         } catch (IOException e) {
-            // Handle error, such as invalid URL or network issues
             return false;
         }
     }
 
     public List<SlideshowImageDuration> searchSlideshowOrder(String keyword, Integer duration) {
-       return imageRepository.findUrlsAndDurations(keyword, duration);
+        return imageRepository.findUrlsAndDurations(keyword, duration);
     }
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.ihor.ImagesTestTask.dtos.AddSlideRequest;
+import ua.ihor.ImagesTestTask.dtos.CreateSlideshowRequest;
 import ua.ihor.ImagesTestTask.models.Image;
 import ua.ihor.ImagesTestTask.models.ProofOfPlay;
 import ua.ihor.ImagesTestTask.models.Slide;
@@ -32,12 +33,12 @@ public class SlideshowService {
     }
 
 
-    public Slideshow createSlideshow(String name, List<AddSlideRequest> slideRequests) {
+    public Slideshow createSlideshow(CreateSlideshowRequest createSlideshowRequest) {
         Slideshow slideshow = new Slideshow();
-        slideshow.setName(name);
+        slideshow.setName(createSlideshowRequest.getName());
 
         List<Slide> slides = new ArrayList<>();
-        for (AddSlideRequest slideRequest : slideRequests) {
+        for (AddSlideRequest slideRequest : createSlideshowRequest.getSlides()) {
             Image image = imageRepository.findById(slideRequest.getImageId())
                     .orElseThrow(() -> new EntityNotFoundException("Image with id: " + slideRequest.getImageId() + " not found"));
 
@@ -69,8 +70,6 @@ public class SlideshowService {
 
 
     public ProofOfPlay recordProofOfPlay(long slideshowId, long imageId) {
-
-
         Slideshow slideshow = slideshowRepository.findById(slideshowId)
                 .orElseThrow(() -> new EntityNotFoundException("Slideshow not found"));
 
