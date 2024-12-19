@@ -61,12 +61,20 @@ public class SlideshowService {
         slideshowRepository.deleteById(id);
     }
 
-    public List<Slide> getSlideshowOrder(Long slideshowId) {
-        Slideshow slideshow = slideshowRepository.findById(slideshowId)
-                .orElseThrow(() -> new EntityNotFoundException("Not found slideshow with ID: " + slideshowId));
+//    public List<Slide> getSlideshowOrder(Long slideshowId) {
+//        Slideshow slideshow = slideshowRepository.findById(slideshowId)
+//                .orElseThrow(() -> new EntityNotFoundException("Not found slideshow with ID: " + slideshowId));
+//
+//        return slideshow.getSlides();
+//    }
 
-        return slideshow.getSlides();
+
+    public Slideshow getSlideshowOrder(Long slideshowId) {
+        return slideshowRepository.findById(slideshowId)
+                .orElseThrow(() -> new EntityNotFoundException("Not found slideshow with ID: " + slideshowId));
     }
+
+
 
 
     public ProofOfPlay recordProofOfPlay(long slideshowId, long imageId) {

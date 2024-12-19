@@ -86,17 +86,16 @@ public class SlideshowRepositoryTest {
         assertThat(slideshow.getSlides().get(0).getDuration()).isEqualTo(120);
         assertThat(slideshow.getSlides().get(0).getImage().getUrl()).isEqualTo("http://test.url");
     }
-//
-//    @Test
-//    public void getByKeywordTest_shouldNotFound() {
-//        // given
-//        String key = "not_match";//http://test.url
-//        // when
-//        List<SlideshowImageDuration> list = imagesRepository.findUrlsAndDurations(key, null);
-//        //then
-//        assertThat(list).isNotNull();
-//        assertThat(list.size()).isEqualTo(0);
-//    }
+
+    @Test
+    public void deleteSlideshowById_shouldDeleteSlideshowTest() {
+        // given
+        long id = 1L;
+        // when
+        imagesRepository.deleteById(id);
+        //then
+        assertThat(slideshowRepository.findById(id).isPresent()).isTrue();
+    }
 //
 //    @Test
 //    public void getByKeywordTest_shouldFoundOne() {

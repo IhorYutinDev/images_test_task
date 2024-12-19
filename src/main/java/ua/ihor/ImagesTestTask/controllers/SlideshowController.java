@@ -61,7 +61,7 @@ public class SlideshowController {
             @ApiResponse(responseCode = "400", description = "Invalid slideshow data provided"),
             @ApiResponse(responseCode = "500", description = "Internal server error")})
     @GetMapping("slideshow/{id}/slideshowOrder")
-    public ResponseEntity<List<Slide>> getSlideshowOrder(@PathVariable Long id) {
+    public ResponseEntity<Slideshow> getSlideshowOrder(@PathVariable Long id) {
         return ResponseEntity.ok(slideshowService.getSlideshowOrder(id));
     }
 
