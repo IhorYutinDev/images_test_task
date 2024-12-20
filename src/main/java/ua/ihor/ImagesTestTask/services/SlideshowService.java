@@ -23,14 +23,14 @@ import java.util.*;
 public class SlideshowService {
     private final SlideshowRepository slideshowRepository;
     private final ProofOfPlayRepository proofOfPlayRepository;
-    private final ImagesRepository imagesRepository;
+    private final ImagesRepository imageRepository;
 
 
     @Autowired
     public SlideshowService(SlideshowRepository slideshowRepository, ProofOfPlayRepository proofOfPlayRepository, ImagesRepository imageRepository) {
         this.slideshowRepository = slideshowRepository;
         this.proofOfPlayRepository = proofOfPlayRepository;
-        this.imagesRepository = imageRepository;
+        this.imageRepository = imageRepository;
     }
 
     @Transactional
@@ -40,7 +40,7 @@ public class SlideshowService {
 
         List<Slide> slides = new ArrayList<>();
         for (AddSlideRequest slideRequest : createSlideshowRequest.getSlides()) {
-            Image image = imagesRepository.findById(slideRequest.getImageId())
+            Image image = imageRepository.findById(slideRequest.getImageId())
                     .orElseThrow(() -> new EntityNotFoundException("Image with id: " + slideRequest.getImageId() + " not found"));
 
             Slide slide = new Slide();
@@ -69,12 +69,13 @@ public class SlideshowService {
                 .orElseThrow(() -> new EntityNotFoundException("Not found slideshow with ID: " + slideshowId));
     }
 
+
     @Transactional
     public ProofOfPlay recordProofOfPlay(long slideshowId, long imageId) {
         Slideshow slideshow = slideshowRepository.findById(slideshowId)
                 .orElseThrow(() -> new EntityNotFoundException("Slideshow not found"));
 
-        Image image = imagesRepository.findById(imageId)
+        Image image = imageRepository.findById(imageId)
                 .orElseThrow(() -> new EntityNotFoundException("Image not found"));
 
         ProofOfPlay proofOfPlay = new ProofOfPlay();

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import ua.ihor.ImagesTestTask.dtos.SlideshowImageDuration;
+import ua.ihor.ImagesTestTask.exceptions.ImageAlreadyExistsException;
 import ua.ihor.ImagesTestTask.exceptions.ImageNotFoundException;
 import ua.ihor.ImagesTestTask.models.Image;
 import ua.ihor.ImagesTestTask.repositories.ImagesRepository;
@@ -35,7 +36,7 @@ public class ImagesService {
         try {
             imageRepository.save(image);
         } catch (DataIntegrityViolationException e) {
-            throw new EntityNotFoundException("Failed to add image with url: '" + image.getUrl() + "' it is already exists");
+            throw new ImageAlreadyExistsException("Failed to add image with url: '" + image.getUrl() + "' it is already exists");
         }
 
         return imageRepository.save(image);

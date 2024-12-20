@@ -4,24 +4,16 @@ package ua.ihor.ImagesTestTask.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.ihor.ImagesTestTask.dtos.CreateSlideshowRequest;
-import ua.ihor.ImagesTestTask.entities.ErrorResponse;
 import ua.ihor.ImagesTestTask.entities.ResponseDTO;
-import ua.ihor.ImagesTestTask.exceptions.InvalidQueryParametersException;
-import ua.ihor.ImagesTestTask.models.Image;
 import ua.ihor.ImagesTestTask.models.ProofOfPlay;
-import ua.ihor.ImagesTestTask.models.Slide;
 import ua.ihor.ImagesTestTask.models.Slideshow;
 import ua.ihor.ImagesTestTask.services.SlideshowService;
 
-import java.util.List;
 
 @RestController
 public class SlideshowController {
