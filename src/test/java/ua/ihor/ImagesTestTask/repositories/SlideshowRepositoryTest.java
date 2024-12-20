@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+
 
 
 @Testcontainers
@@ -96,38 +96,5 @@ public class SlideshowRepositoryTest {
         //then
         assertThat(slideshowRepository.findById(id).isPresent()).isTrue();
     }
-//
-//    @Test
-//    public void getByKeywordTest_shouldFoundOne() {
-//        // given
-//        String key = "est.u";//http://test.url
-//        // when
-//        List<SlideshowImageDuration> list = imagesRepository.findUrlsAndDurations(key, null);
-//        //then
-//        assertThat(list).isNotNull();
-//        assertThat(list.size()).isEqualTo(1);
-//    }
-//
-//    @Test
-//    public void getByDurationTest_shouldFoundOne() {
-//        // given
-//        int duration = 120;
-//        // when
-//        List<SlideshowImageDuration> list = imagesRepository.findUrlsAndDurations(null, duration);
-//        //then
-//        assertThat(list).isNotNull();
-//        assertThat(list.size()).isEqualTo(1);
-//    }
-//
-//    @Test
-//    public void getByDurationTest_shouldNotFound() {
-//        // given
-//        int duration = -1;//120
-//        // when
-//        List<SlideshowImageDuration> list = imagesRepository.findUrlsAndDurations(null, duration);
-//        //then
-//        assertThat(list).isNotNull();
-//        assertThat(list.size()).isEqualTo(0);
-//    }
 }
 
