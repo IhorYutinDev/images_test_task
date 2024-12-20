@@ -14,7 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ua.ihor.ImagesTestTask.dtos.CreateSlideshowRequest;
-import ua.ihor.ImagesTestTask.entities.ResponseDTO;
 import ua.ihor.ImagesTestTask.models.Image;
 import ua.ihor.ImagesTestTask.models.ProofOfPlay;
 import ua.ihor.ImagesTestTask.models.Slideshow;
@@ -73,7 +72,6 @@ class SlideshowControllerTest {
     void testDeleteSlideshow() throws Exception {
         // Arrange
         Long slideshowId = 1L;
-        ResponseDTO responseDTO = new ResponseDTO(true, "Successfully deleted slideshow with id: " + slideshowId);
         doNothing().when(slideshowService).deleteSlideshow(slideshowId);
 
         // Act & Assert

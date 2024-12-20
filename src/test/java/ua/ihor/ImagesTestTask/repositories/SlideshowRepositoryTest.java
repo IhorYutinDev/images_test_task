@@ -1,16 +1,13 @@
 package ua.ihor.ImagesTestTask.repositories;
 
-import jakarta.persistence.EntityNotFoundException;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import ua.ihor.ImagesTestTask.dtos.AddSlideRequest;
-import ua.ihor.ImagesTestTask.dtos.SlideshowImageDuration;
 import ua.ihor.ImagesTestTask.models.Image;
 import ua.ihor.ImagesTestTask.models.Slide;
 import ua.ihor.ImagesTestTask.models.Slideshow;
@@ -21,7 +18,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
 
 
 @Testcontainers

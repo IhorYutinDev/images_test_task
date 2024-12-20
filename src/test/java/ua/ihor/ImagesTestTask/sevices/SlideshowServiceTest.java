@@ -2,17 +2,14 @@ package ua.ihor.ImagesTestTask.sevices;
 
 
 import jakarta.persistence.EntityNotFoundException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
 import ua.ihor.ImagesTestTask.dtos.AddSlideRequest;
 import ua.ihor.ImagesTestTask.dtos.CreateSlideshowRequest;
 import ua.ihor.ImagesTestTask.models.Image;
 import ua.ihor.ImagesTestTask.models.ProofOfPlay;
-import ua.ihor.ImagesTestTask.models.Slide;
 import ua.ihor.ImagesTestTask.models.Slideshow;
 import ua.ihor.ImagesTestTask.repositories.ImagesRepository;
 import ua.ihor.ImagesTestTask.repositories.ProofOfPlayRepository;
@@ -20,7 +17,7 @@ import ua.ihor.ImagesTestTask.repositories.SlideshowRepository;
 import ua.ihor.ImagesTestTask.services.SlideshowService;
 
 import java.time.LocalDateTime;
-import java.util.*;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -62,8 +59,8 @@ public class SlideshowServiceTest {
         createSlideshowRequest.setName("Test Slideshow");
 
         AddSlideRequest slideRequest = new AddSlideRequest();
-        slideRequest.setImageId(1L); // Ensure this matches the mocked image ID
-        slideRequest.setDuration(5); // Duration set for the slide
+        slideRequest.setImageId(1L);
+        slideRequest.setDuration(5);
         createSlideshowRequest.setSlides(Collections.singletonList(slideRequest));
 
         Slideshow mockSlideshow = new Slideshow();
