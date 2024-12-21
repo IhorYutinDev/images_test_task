@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.ihor.ImagesTestTask.dtos.ImageDTO;
 import ua.ihor.ImagesTestTask.dtos.SlideshowImageDuration;
-import ua.ihor.ImagesTestTask.entities.ResponseDTO;
+import ua.ihor.ImagesTestTask.dtos.ResponseDTO;
 import ua.ihor.ImagesTestTask.exceptions.InvalidQueryParametersException;
 import ua.ihor.ImagesTestTask.models.Image;
 import ua.ihor.ImagesTestTask.services.ImagesService;

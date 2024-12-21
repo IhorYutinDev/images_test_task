@@ -1,11 +1,7 @@
-package ua.ihor.ImagesTestTask.entities;
+package ua.ihor.ImagesTestTask.dtos;
 
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.util.Date;
 
 
 @Data

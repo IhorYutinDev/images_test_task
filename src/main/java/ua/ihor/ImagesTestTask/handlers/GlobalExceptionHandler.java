@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import ua.ihor.ImagesTestTask.entities.ResponseDTO;
+import ua.ihor.ImagesTestTask.dtos.ResponseDTO;
 import ua.ihor.ImagesTestTask.exceptions.ImageAlreadyExistsException;
 import ua.ihor.ImagesTestTask.exceptions.InvalidQueryParametersException;
 

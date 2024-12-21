@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.ihor.ImagesTestTask.dtos.CreateSlideshowRequest;
-import ua.ihor.ImagesTestTask.entities.ResponseDTO;
+import ua.ihor.ImagesTestTask.dtos.ResponseDTO;
 import ua.ihor.ImagesTestTask.models.ProofOfPlay;
 import ua.ihor.ImagesTestTask.models.Slideshow;
 import ua.ihor.ImagesTestTask.services.SlideshowService;
