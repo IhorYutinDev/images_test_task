@@ -72,7 +72,7 @@ class ImagesControllerTest {
         // Arrange
         String keyword = "image";
         Integer duration = 5;
-        List<SlideshowImageDuration> images = Arrays.asList(new SlideshowImageDuration(1,"test","http://example.com/image1.jpg", 5));
+        List<SlideshowImageDuration> images = Arrays.asList(new SlideshowImageDuration(1,"http://example.com/image1.jpg", "test",5));
         when(imageService.searchSlideshowOrder(keyword, duration)).thenReturn(images);
 
         // Act and Assert

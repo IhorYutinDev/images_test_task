@@ -13,12 +13,16 @@ import java.util.List;
 @Repository
 public interface ImagesRepository extends JpaRepository<Image, Long> {
     @Query("""
-            SELECT new ua.ihor.ImagesTestTask.dtos.SlideshowImageDuration(ss.id, ss.name, i.url, s.duration)
-            FROM Slide s
-            JOIN s.image i
-            JOIN s.slideshow ss
-            WHERE i.url LIKE CONCAT('%', :keyword, '%')
-            OR s.duration = :duration
+            select new ua.ihor.ImagesTestTask.dtos.SlideshowImageDuration(
+                i.id, 
+                i.url, 
+                ss.name, 
+                s.duration
+            )
+            from Image i
+            left join Slide s on i.id = s.image.id
+            left join s.slideshow ss
+            where i.url like CONCAT('%', :keyword, '%') or s.duration = :duration
             """)
     List<SlideshowImageDuration> findUrlsAndDurations(@Param("keyword") String keyword, @Param("duration") Integer duration);
 }

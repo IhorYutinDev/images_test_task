@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.dao.DataIntegrityViolationException;
+
 import ua.ihor.ImagesTestTask.dtos.SlideshowImageDuration;
 import ua.ihor.ImagesTestTask.exceptions.ImageAlreadyExistsException;
 import ua.ihor.ImagesTestTask.models.Image;
@@ -120,18 +121,17 @@ public class ImagesServiceTest {
         String keyword = "test";
         Integer duration = 120;
 
-        SlideshowImageDuration result1 = new SlideshowImageDuration(1, "test1", "http://test.url/image1.jpg", 120);
-        SlideshowImageDuration result2 = new SlideshowImageDuration(2, "test2", "http://test.url/image2.jpg", 150);
+        SlideshowImageDuration result1 = new SlideshowImageDuration(1,  "http://test.url/image1.jpg", "test1",120);
 
         when(imageRepository.findUrlsAndDurations(keyword, duration))
-                .thenReturn(Arrays.asList(result1, result2));
+                .thenReturn(List.of(result1));
 
         // Act
         List<SlideshowImageDuration> results = imagesService.searchSlideshowOrder(keyword, duration);
 
         // Assert
         assertNotNull(results);
-        assertEquals(2, results.size());
+        assertEquals(1, results.size());
         assertEquals("http://test.url/image1.jpg", results.get(0).getUrl());
         assertEquals(120, results.get(0).getDuration());
     }

@@ -24,7 +24,6 @@ public class Slide {
     @JoinColumn(name = "slideshow_id", nullable = false)
     private Slideshow slideshow;
 
-//    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "image_id", nullable = false)
     private Image image;
