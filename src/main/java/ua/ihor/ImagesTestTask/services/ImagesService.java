@@ -34,12 +34,10 @@ public class ImagesService {
         }
 
         try {
-            imageRepository.save(image);
+          return imageRepository.save(image);
         } catch (DataIntegrityViolationException e) {
             throw new ImageAlreadyExistsException("Failed to add image with url: '" + image.getUrl() + "' it is already exists");
         }
-
-        return imageRepository.save(image);
     }
 
     public void deleteImage(Long id) throws ImageNotFoundException {
